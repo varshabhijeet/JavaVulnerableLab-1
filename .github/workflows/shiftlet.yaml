@@ -15,21 +15,21 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
-    # We are building this application with Java 11
+    # We are building this application with Java 1.8
     - name: Setup Java JDK
       uses: actions/setup-java@v1
       with:
-        java-version: 11.0.x
+        java-version: 1.8
     - name: Package with maven
       run: mvn -B package --file pom.xml
     - name: Download ShiftLeft CLI
       run: |
         curl https://cdn.shiftleft.io/download/sl > ${GITHUB_WORKSPACE}/sl && chmod a+rx ${GITHUB_WORKSPACE}/sl
     # ShiftLeft requires Java 1.8. Post the package step override the version
-    - name: Setup Java JDK
-      uses: actions/setup-java@v1.3.0
-      with:
-        java-version: 1.8
+    #- name: Setup Java JDK
+     # uses: actions/setup-java@v1
+    #  with:
+      #  java-version: 1.8
     - name: NextGen Static Analysis
       run: ${GITHUB_WORKSPACE}/sl analyze --wait --app {{ .Application }} --tag branch={{`${{ github.head_ref }}`}} --vcs-prefix-correction "io/shiftleft=src/main/java/" --java --cpg target/hello-shiftleft-0.0.1.jar
 
