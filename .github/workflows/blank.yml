@@ -21,20 +21,20 @@ jobs:
     - name: SonarQube Scan
   # You may pin to the exact commit or the version.
   # uses: kitabisa/sonarqube-action@a40c5bc8f6f33b9e0d5035caf5910807ce1d554d
-  uses: kitabisa/sonarqube-action@v1.1.0
-  with:
+      uses: kitabisa/sonarqube-action@v1.1.0
+      with:
     # SonarQube server URL
-    host: http://3.22.123.68:9000/
+        host: http://3.22.123.68:9000/
     # The project's unique key. Allowed characters are: letters, numbers, -, _, . and :, with at least one non-digit.
-    projectKey: 4684ecea79d91585dc20f135c8469f7a5509f605
+        projectKey: 4684ecea79d91585dc20f135c8469f7a5509f605
     # Name of the project that will be displayed on the web interface.
-    projectName: Github_Action
+        projectName: Github_Action
     # The project version.
     #projectVersion: # optional, default is 
     # Set the sonar.projectBaseDir analysis property
     #projectBaseDir: # optional, default is .
     # Login or authentication token of a SonarQube user
-    login: admin
+        login: admin
     # Password that goes with the sonar.login username. This should be left blank if an authentication token is being used.
-    password: admin@123
+        password: admin@123
     
