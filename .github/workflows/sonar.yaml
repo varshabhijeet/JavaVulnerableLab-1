@@ -1,29 +1,13 @@
-on:
-  push:
-  # We recommend triggering a scan when merging to your default branch as a best practice,
-  # especially if you'd like to compare the results of two scans (e.g., a feature branch against the
-  # default branch)
-    branches:
-    - main
-    - master
+on: push
+name: Main Workflow
 jobs:
-  sonarqube:
+  sonarQubeTrigger:
+    name: SonarQube Trigger
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
-    # We are building this application with Java 1.8
-    - name: Setup Java JDK
-      uses: actions/setup-java@v1
-      with:
-        java-version: 1.8
-  #  - name: Package with maven
-  #    run: mvn -B package --file pom.xml
+    - uses: actions/checkout@master
     - name: SonarQube Scan
-      uses: kitabisa/sonarqube-action@v1.1.0
+      uses: kitabisa/sonarqube-action@master
       with:
-            host: "http://3.22.123.68:9000/"
-            projectKey: "4684ecea79d91585dc20f135c8469f7a5509f605"
-            projectName: "Github_Action"
-            login: "admin"
-            password: admin@123
-    
+        host: http://3.22.123.68:9000/
+        login: 4684ecea79d91585dc20f135c8469f7a5509f605
