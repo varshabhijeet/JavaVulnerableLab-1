@@ -19,20 +19,16 @@ jobs:
         java-version: 1.8
     - name: Package with maven
       run: mvn -B package --file pom.xml
-  sonar:
-    name: Code-Quality Check
-    runs-on: ubuntu-latest
-
-    steps:
-      - uses: actions/checkout@v1
-      - name: Set up JDK
-        uses: actions/setup-java@v1
-        with:
-          java-version: 1.8
-      - name: SonarCloud Scan
-        run: mvn -B clean verify -Psonar -Dsonar.projectKey=595b9014b64d184c1c0b6e534c76757aff7f731d -Dsonar.organization=default-organization -Dsonar.login=595b9014b64d184c1c0b6e534c76757aff7f731d
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
- 
-  
+   
+    - name: Setup sonarqube
+      uses: warchant/setup-sonar-scanner@v3
+    - name: Run sonarqube
+      env:
+    # to get access to secrets.SONAR_TOKEN, provide GITHUB_TOKEN
+           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      run: sonar-scanner
+       -Dsonar.login=595b9014b64d184c1c0b6e534c76757aff7f731d
+       -Dsonar.organization=1corp
+       -Dsonar.host.url=http://3.16.66.104:9000/
+       -Dsonar.projectKey=595b9014b64d184c1c0b6e534c76757aff7f731d
  
