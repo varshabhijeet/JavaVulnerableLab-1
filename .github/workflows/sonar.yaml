@@ -27,9 +27,9 @@ jobs:
     # to get access to secrets.SONAR_TOKEN, provide GITHUB_TOKEN
            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       run: sonar-scanner
-       -Dsonar.login=595b9014b64d184c1c0b6e534c76757aff7f731d
+       -Dsonar.login=c3c49dfe51138664d65987baf578d3cc82c8c071
        -Dsonar.organization=1corp
        -Dsonar.host.url=http://3.16.66.104:9000/
        -Dsonar.projectKey=test
-       -Dsonar.sources=595b9014b64d184c1c0b6e534c76757aff7f731d
+       #-Dsonar.sources=595b9014b64d184c1c0b6e534c76757aff7f731d
  
