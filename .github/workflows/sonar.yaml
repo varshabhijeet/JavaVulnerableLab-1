@@ -31,5 +31,5 @@ jobs:
        -Dsonar.organization=1corp
        -Dsonar.host.url=http://3.16.66.104:9000/
        -Dsonar.projectKey=test
-       -Dsonar.sources=c3c49dfe51138664d65987baf578d3cc82c8c071
+       -Dsonar.sources=JavaVulnerableLab-1/JavaVulnerableLab-1
  
