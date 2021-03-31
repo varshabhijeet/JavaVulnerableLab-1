@@ -20,16 +20,9 @@ jobs:
     - name: Package with maven
       run: mvn -B package --file pom.xml
    
-    - name: Setup sonarqube
-      uses: warchant/setup-sonar-scanner@v3
-    - name: Run sonarqube
-      env:
-    # to get access to secrets.SONAR_TOKEN, provide GITHUB_TOKEN
-           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      run: sonar-scanner
-       -Dsonar.login=c3c49dfe51138664d65987baf578d3cc82c8c071
-       -Dsonar.organization=default-organization
-       -Dsonar.host.url=http://3.136.234.47:9000/
-       -Dsonar.projectKey=test
-       -Dsonar.sources=src
-       -Dsonar.java.binaries=**/target/classes  
+    - name: run sonarqube
+      run: |
+       mvn sonar:sonar 
+       -Dsonar.host.url=http://3.136.234.47:9000 \
+       -Dsonar.login=cd7776b73380935285e93707c11a5d88150d557e
+       
