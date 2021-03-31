@@ -23,6 +23,6 @@ jobs:
     - name: run sonarqube
       run: |
        mvn sonar:sonar 
-       -Dsonar.host.url=http://3.136.234.47:9000 \
+       -Dsonar.host.url=http://3.136.234.47:9000 
        -Dsonar.login=cd7776b73380935285e93707c11a5d88150d557e
        
